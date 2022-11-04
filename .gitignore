@@ -1,0 +1,4 @@
+.vscode
+Libs/*
+build/*
+dist/*
