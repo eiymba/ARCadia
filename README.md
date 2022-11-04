@@ -1,10 +1,45 @@
-[![Build Status](https://travis-ci.org/nyyr/ArcHUD3.svg)](https://travis-ci.org/nyyr/ArcHUD3)
+![Arc-HUD Splash Screen](https://i.imgur.com/PSgNCkn.png)
+# Arc-HUD
 
-# ArcHUD3
+ ## [Based on the popular ArcHUB3 project by nyyr](https://github.com/nyyr/ArcHUB3)!
 
-ArcHUD displays smooth arcs around your character in the middle of the screen to inform you about the health and power (mana, rage, ...) of you, your pet, and your target. In addition, it shows casts, combo points, holy power, soul shards, and a couple of other things. It discretely fades when you are out of combat and at full health/power.
+* ✨ Health and power (mana, rage, focus, energy, runic power) for player, pet, target, and focus target
+* 🔥 Player's secondary power (Holy Power, Soul Shards, Chi etc.)
+* 📊 Casting/channelling progress for player, target, and focus target
+* 😪 Fatigue/breath (mirror timer)
+* ✊ Combo points (including unconsumed combo points on previous target, e.g. on dead corpses)
+* ☠️ Custom (de)buff arcs: Ever wanted to keep track of the stacks and/or remaining times of some specific (de)buffs such as Evangelism, Savage Roar, Beacon of Light, Weakened Soul, etc? Then just create your own custom (de)buff arc for it!
+* ⏪ Classic and classic era support included!
 
-This is a continuation of ArcHUD2 which managed to survive various patches... until the Cataclysm. Thanks to Nenie, the original author of ArcHUD2, for supporting me with this new version.
+## Downloads
+
+| Source          |      Link      |
+|:----------------|:---------------|
+| CurseForge      |       [Download](https://www.curseforge.com/wow/addons/arc-hud)      |
+| WoW Interface   | [Download](https://www.wowinterface.com/downloads/info25227-ArcHUD3Classic.html) |
+| WoWAce          | [Download](https://www.wowace.com/projects/archud3-classic) |
+| GitHub Releases | [Download](https://github.com/eiymba/arc-hud/releases/latest) |
+
+## What is Arc-HUD?
+
+Arc-HUD displays smooth arcs around your character in the middle of the screen to inform you about the health and power (mana, rage, ...) of you, your pet, and your target. In addition, it shows casts, combo points, holy power, soul shards, and a couple of other things. It discretely fades when you are out of combat and at full health/power.
+
+These arcs are currently supported:
+
+* Health and power (mana, rage, focus, energy, runic power) for player, pet, target, and focus target
+* Player's secondary power (Holy Power, Soul Shards, Chi etc.)
+* Casting/channelling progress for player, target, and focus target
+* Fatigue/breath (mirror timer)
+* Combo points (including unconsumed combo points on previous target, e.g. on dead corpses)
+* Custom (de)buff arcs: Ever wanted to keep track of the stacks and/or remaining times of some specific (de)buffs such as Evangelism, Savage Roar, Beacon of Light, Weakened Soul, etc? Then just create your own custom (de)buff arc for it!
+
+In addition, some additional target information is displayed:
+
+* Current target (name, class, guild, 3D model)
+* Current (de)buffs on target
+* Target-of-target and target-of-target-of-target
+
+<!-- This is a continuation of ArcHUD2 which managed to survive various patches... until the Cataclysm. Thanks to Nenie, the original author of ArcHUD2, for supporting me with this new version.
 
 Please report any bugs or feature requests via the ticket system. The login is the same as your Curse login.
 
@@ -68,4 +103,12 @@ For current WoW Classic:
 * [Ring Prototypes](Docs/ring-prototypes.txt) (a bit outdated)
 * [Maths behind the rings](Docs/statrings.txt)
 * [History](Docs/history.txt)
-* [Publishing via Travis CI](http://www.wowinterface.com/forums/showthread.php?t=55801)
+* [Publishing via Travis CI](http://www.wowinterface.com/forums/showthread.php?t=55801) -->
+
+
+## Further Links
+
+* [Changelog](./CHANGELOG.md)
+* [Issues](https://github.com/eiymba/arc-hud/issues)
+* [Contributing](./Contributing.md)
+
