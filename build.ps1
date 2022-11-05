@@ -87,7 +87,7 @@ $Toc = $Toc | ForEach-Object {
     }
 
     if ( $_ -match "^## X-Date: \{\{(.+)\}\}$" ) {
-        $_ = "## Date: $( Get-Date -Format "o" )"
+        $_ = "## X-Date: $( Get-Date -Format "o" )"
     }
 
     $_
@@ -124,6 +124,7 @@ Compress-Archive `
     .\*.xml, `
     .\*.txt, `
     .\*.md `
+    LICENSE `
     -DestinationPath `
     "$BuildDir\$Name-$Version.zip" `
     -Force

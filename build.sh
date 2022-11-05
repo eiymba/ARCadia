@@ -24,13 +24,12 @@ EOF
 CLEAN=0
 RELEASE=0
 COPY_TO_WOW=0
-NAME="",
+NAME="Arcadia"
 VERSION=$(cat VERSION.txt)
 BUILD_DIR="build"
 OUTPUT_DIR="dist"
 COPY_TO_WOW=0
 WOW_DIR="/Applications/World of Warcraft/_retail_"
-TOC_FILE="template.toc"
 INTERFACE_VERSION="100000"
 
 while test $# -gt 0; do
@@ -94,34 +93,32 @@ else
     TOC_TEMPLATE="$TOC_FILE.toc"
 fi
 
-TOC
+touch "$BUILD_DIR/$NAME.toc"
 
+
+## Read the toc file and append INTERFACE_VERSION, VERSION, and NAME by replacing the placeholders delimited as {{ .+ }}
 while IFS= read -r line; do
-    if [[ $line == \#* ]]; then
-        continue
+    if [[ $line =~ ^##\ Interface\:\ \{\{(.+)\}\}$ ]]; then
+        line="## Interface: $INTERFACE_VERSION"
+        echo -e "$line" >> "$BUILD_DIR/$NAME.toc"
+    elif [[ $line =~ ^##\ Version\:\ \{\{(.+)\}\}$ ]]; then
+        line="## Version: $VERSION"
+        echo -e "$line" >> "$BUILD_DIR/$NAME.toc"
+    elif [[ $line =~ ^##\ Title\:\ \{\{(.+)\}\}$ ]]; then
+        line="## Title: $NAME"
+    elif [[ $line =~ ^##\ X-Date\:\ \{\{(.+)\}\}$ ]]; then
+        line="## X-Date: $(date +%s)"
+        echo -e "$line" >> "$BUILD_DIR/$NAME.toc"
+    else
+
+        echo "$line" >> "$BUILD_DIR/$NAME.toc"
     fi
 
-    if [[ $line == Interface:* ]]; then
-        INTERFACE_VERSION=$(echo $line | cut -d ':' -f 2)
-        continue
-    fi
-
-    if [[ $line == Title:* ]]; then
-        NAME=$(echo $line | cut -d ':' -f 2)
-        continue
-    fi
-
-    if [[ $line == Version:* ]]; then
-        VERSION=$(echo $line | cut -d ':' -f 2)
-        continue
-    fi
-
-    TOC+="$line"
-done < "$TOC_FILE"
+done < "$TOC_TEMPLATE"
 
 # Archive files
 
-echo "Archiving files to $BUILD_DIR/$ZIP_FILE.zip"
+echo "Archiving files to $BUILD_DIR/$NAME-$VERSION.zip"
 
 zip -r "$BUILD_DIR/$NAME-$VERSION.zip" \
 ./Docs \
