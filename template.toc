@@ -1,0 +1,38 @@
+## Interface: {{ interface }}
+## Title: Arcadia
+## Notes: Smooth combat HUD based on ArcHUD3
+## Author: nyyr, Nenie, eiymba, rookdorf
+## SavedVariables: ArcadiaDB
+## Version: {{ version }}
+## X-Date: {{ date }}
+## X-Category: HUDs
+## X-Curse-Project-ID: 696680
+
+# Libraries
+embeds.xml
+
+# Locales
+Locales\Locales.xml
+
+# Core addon
+Core.lua
+Frames.xml
+Nameplates.lua
+BlizzardFrames.lua
+Utils.lua
+
+# Module core
+RingTemplate.xml
+ModuleCore.lua
+
+# Config
+Config.lua
+
+# Rings
+Rings\Rings.xml
+
+# Extensions
+#Extensions\Extensions.xml
+
+# Unit frames
+#UnitFrames\UnitFrames.xml
