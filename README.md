@@ -22,10 +22,9 @@
 
 | Source          |      Link      |
 |:----------------|:---------------|
-| CurseForge      |       [Download](https://www.curseforge.com/wow/addons/arc-hud)      |
+| CurseForge      |       [Download](https://www.curseforge.com/wow/addons/arcadia)      |
 | WoW Interface   | [Download](https://www.wowinterface.com/downloads/info25227-ArcHUD3Classic.html) |
-| WoWAce          | [Download](https://www.wowace.com/projects/archud3-classic) |
-| GitHub Releases | [Download](https://github.com/eiymba/arc-hud/releases/latest) |
+| GitHub Releases | [Download](https://github.com/eiymba/arcadia/releases/latest) |
 
 ## What is Arcadia?
 
