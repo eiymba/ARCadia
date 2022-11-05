@@ -1,28 +1,23 @@
 # Building Arcadia
 
-## Prerequisites
+## Getting Started
 
-- A text editor like [Visual Studio Code](https://code.visualstudio.com/).
-- [Git](https://git-scm.com/).
+The easiest way to get started is by connecting your Github account to Gitpod! ([What is Gitpod?](https://www.gitpod.io/)) <a href="https://gitpod.io/#eiymba/arcadia">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
 
-## Building
+### Prerequisites
 
-### Clone the repository
-
-#### HTTPS (Simple)
-
-```bash
-git clone --recursive-submodules https://github.com/eiymba/arcadia.git; cd arcadia
-```
-
-#### SSH (Advanced)
-
-```bash
-git clone --recursive-submodules git@github.com:eiymba/arcadia.git; cd arcadia
-```
+- [ ] You have a [GitHub account](https://github.com).
+- [ ] You have [Git](https://git-scm.com/) installed on your machine. _(Don't want to install Git? Try [Gitpod](https://gitpod.io/#eiymba/arcadia))_
+- [ ] A text editor like [Visual Studio Code](https://code.visualstudio.com/) with [Lua](https://www.lua.org/) language support. _(Don't want to install anything? Try [Gitpod](https://gitpod.io/#eiymba/arcadia))_
 
 
-### Build the project
+
+### Build The Project
 
 Arcadia comes with a build script that will build the project and package it into a `.zip` file. The script can also extract the `.zip` file into your WoW Addons directory, by passing the `-x` flag.
 
