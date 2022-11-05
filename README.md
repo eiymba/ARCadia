@@ -1,6 +1,13 @@
 ![Arcadia HUD Splash Screen](https://i.imgur.com/rE77bRj.png)
 # Arcadia HUD
 
+<a href="https://gitpod.io/#github.com/eiymba/arcadia">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+
  ## [Based on the popular ArcHUB3 project by nyyr](https://github.com/nyyr/ArcHUB3)!
 
 * ✨ Health and power (mana, rage, focus, energy, runic power) for player, pet, target, and focus target
