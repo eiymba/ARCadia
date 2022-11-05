@@ -23,7 +23,7 @@
 | Source          |      Link      |
 |:----------------|:---------------|
 | CurseForge      |       [Download](https://www.curseforge.com/wow/addons/arcadia)      |
-| WoW Interface   | N/A |
+| WoW Interface   | [Download](https://www.wowinterface.com/downloads/info25227-ArcHUD3Classic.html) |
 | GitHub Releases | [Download](https://github.com/eiymba/arcadia/releases/latest) |
 
 ## What is Arcadia?
