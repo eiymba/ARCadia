@@ -1,0 +1,26 @@
+name: Update Release
+on:
+  push:
+    tags:
+      - "**"
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Run
+        id: create_release
+        run: ./build.sh
+        shell: bash
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.RELEASE_PAT }}
+          file: ./build/Arcadia-${{ github.ref }}.zip
+          asset_name: Arcadia-${{ github.ref }}.zip
+          tag: ${{ github.ref }}
+          overwrite: true
