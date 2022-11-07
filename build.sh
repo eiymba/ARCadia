@@ -116,20 +116,19 @@ done < "$TOC_FILE"
 
 echo "Archiving files to $BUILD_DIR/$ZIP_FILE.zip"
 
-# Set TOC to the contents of a temporary file
-TOC > "$BUILD_DIR/$NAME.toc"
+zip -r "$BUILD_DIR/$NAME-$VERSION.zip" \
+./Docs \
+./Icons \
+./Libs \
+./Locales \
+./Rings \
+./*.lua \
+./*.xml \
+./*.txt \
+./*.md \
 
-zip -r "$BUILD_DIR/$NAME-$VERSION.zip" . \
--x "docs" \
-"Icons" \
-"Libs" \
-"Locales" \
-"Rings" \
-"$BUILD_DIR/$NAME.toc" \
-"*.lua" \
-"*.xml" \
-"*.txt" \
-"*.md" 
+pushd "$BUILD_DIR"; zip -g "$NAME-$VERSION.zip" "$NAME.toc"; popd
+rm -f "$BUILD_DIR/$NAME.toc"
 
 # Exit if we're not copying to wow or release is not set
 
