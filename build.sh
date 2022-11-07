@@ -85,7 +85,14 @@ fi
 
 # Parse the toc file
 
-echo "Parsing toc file: $($TOC_FILE || 'template.toc')"
+if [ -z "$TOC_FILE" ]; then
+    echo "Parsing toc file: template.toc"
+    mkdir -p "$BUILD_DIR"
+    TOC_TEMPLATE="./template.toc"
+else
+    echo "Parsing toc file: $TOC_FILE.toc"
+    TOC_TEMPLATE="$TOC_FILE.toc"
+fi
 
 TOC
 
