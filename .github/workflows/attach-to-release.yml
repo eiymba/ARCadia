@@ -24,3 +24,10 @@ jobs:
           asset_name: Arcadia-${{ github.ref_name }}.zip
           tag: ${{ github.ref }}
           overwrite: true
+      - name: Upload to Curseforge
+        uses: itsmeow/curseforge-upload@3.1.1
+        with:
+          token: ${{ secrets.CURSEFORGE_TOKEN }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          game_endpoint: wow
+          file_path: ./build/Arcadia-${{ github.ref_name }}.zip
