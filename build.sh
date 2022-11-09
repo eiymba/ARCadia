@@ -27,7 +27,6 @@ COPY_TO_WOW=0
 NAME="Arcadia"
 VERSION="v$(cat VERSION.txt)"
 BUILD_DIR="build"
-OUTPUT_DIR="dist"
 COPY_TO_WOW=0
 WOW_DIR="/Applications/World of Warcraft/_retail_"
 INTERFACE_VERSION="100000"
@@ -58,9 +57,6 @@ while test $# -gt 0; do
             ;;
         -w|--wow-dir)
             WOW_DIR=$2
-            ;;
-        -o|--output-dir)
-            OUTPUT_DIR=$2
             ;;
         -f|--toc-file)
             TOC_FILE=$2
