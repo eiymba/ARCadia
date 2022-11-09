@@ -15,3 +15,4 @@ jobs:
           prerelease: true
           default-branch: canary
           version-file: VERSION.txt
+          pull-request-title-pattern: "v${version} Release"
