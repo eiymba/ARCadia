@@ -1,8 +1,7 @@
 on:
   push:
     branches:
-      - master
-      - canary
+      - alpha
 name: release-please
 jobs:
   release-please:
@@ -10,5 +9,11 @@ jobs:
     steps:
       - uses: google-github-actions/release-please-action@v3
         with:
-          release-type: node
-          package-name: release-please-action
+          token: ${{ secrets.RELEASE_PAT }}
+          release-type: simple
+          package-name: Arcadia
+          default-branch: alpha
+          prerelease: ${{ github.ref_name == 'alpha' || github.ref_name == 'beta' }}
+          version-file: VERSION.txt
+          pull-request-title-pattern: "v${version} ${{ github.ref_name }}"
+          # component: "${{ github.ref_name }}"
