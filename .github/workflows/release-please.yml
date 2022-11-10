@@ -1,6 +1,8 @@
 on:
   push:
     branches:
+      - alpha
+      - beta
       - canary
 name: release-please
 jobs:
@@ -12,7 +14,7 @@ jobs:
           token: ${{ secrets.RELEASE_PAT }}
           release-type: simple
           package-name: Arcadia
-          prerelease: true
-          default-branch: canary
+          prerelease: ${{ github.ref_name == 'alpha' || github.ref_name == 'beta' }}
           version-file: VERSION.txt
-          pull-request-title-pattern: "v${version} Release"
+          pull-request-title-pattern: "v${version} ${{ github.ref_name }}"
+          # component: "${{ github.ref_name }}"

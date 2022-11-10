@@ -6,22 +6,40 @@ on:
 jobs:
   build:
     name: build
+    strategy:
+      fail-fast: true
+      matrix:
+        gameVersion: [011403, 030400, 100000]
+        include:
+          - gameVersion: 011403
+            name: ARCadia-classic
+          - gameVersion: 030400
+            name: ARCadia-WoTLK
+          - gameVersion: 100000
+            name: "ARCadia"
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
-      - name: Run
-        id: create_release
-        run: ./build.sh
+      - name: Create Preliminary Builds
+        id: create_preliminay_build
+        if: ${{ github.ref_name == 'alpha' || github.ref_name == 'beta' }}
+        run: ./build.sh -i ${{ matrix.gameVersion }} -n ${{ matrix.name }}-${{ github.ref_name }}
+        shell: bash
+      - name: Create Release Builds
+        id: create_preliminay_build
+        if: ${{ github.ref_name != 'alpha' || github.ref_name != 'beta' }}
+        run: ./build.sh -i ${{ matrix.gameVersion }} -n ${{ matrix.name }}-${{ github.ref_name }}
         shell: bash
       - name: Upload Release Asset
         id: upload-release-asset 
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.RELEASE_PAT }}
-          file: ./build/Arcadia-${{ github.ref_name }}.zip
-          asset_name: Arcadia-${{ github.ref_name }}.zip
+          file: ./build/${{ matrix.name }}-${{ github.ref_name }}.zip
+          asset_name: ${{ matrix.name }}-${{ github.ref_name }}.zip
           tag: ${{ github.ref }}
           overwrite: true
       - name: Upload to Curseforge
@@ -30,4 +48,4 @@ jobs:
           token: ${{ secrets.CURSEFORGE_TOKEN }}
           project_id: ${{ secrets.PROJECT_ID }}
           game_endpoint: wow
-          file_path: ./build/Arcadia-${{ github.ref_name }}.zip
+          file_path: ./build/${{ matrix.name }}-${{ github.ref_name }}.zip
