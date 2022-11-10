@@ -30,6 +30,12 @@
 
 `Arcadia` displays smooth arcs around your character in the middle of the screen to inform you about the `health` and `power` (`mana`, `rage`, ...) of you, your pet, and your target. In addition, it shows casts, combo points, holy power, soul shards, and a couple of other things. It discretely fades when you are out of combat and at full health/power.
 
+## Why Arcadia?
+
+`Arcadia` is a fork of the popular `ArcHUD3` addon by `nyyr`. The project had
+become stale despite its popularity. Unfortunately, it was difficult to contact the original author and ask for permission to transfer ownership of the project and use of its name.
+
+WoW addon development typically followed a paradigm that is outdated in comparison to moden software development practices. This project restructures the codebase to be more maintainable and extensible. Happy days! 🎉
 ## Further Links
 
 * [Changelog](./CHANGELOG.md)
