@@ -6,7 +6,6 @@ param (
     [ Switch ][Alias('x')]  $CopyToWow,
     [ string ][Alias('v')]  $Version = $(Get-Content -Path .\VERSION.txt),
     [ string ][Alias('d')]  $BuildDir = "build",
-    [ string ][Alias('o')]  $OutputDir = "dist",
     [ string ][Alias('n')]  $Name = "Arcadia",
     [ string ][Alias('w')]  $WowDir = "C:\Program Files (x86)\World of Warcraft\_retail_",
     [ string ][Alias('f')]  $TocFile,
@@ -32,7 +31,6 @@ if ( $h -or $Help ) {
         -n, -Name               the name of the package to build
         -v, -Version            the version of the package to build
         -d, -BuildDir           the directory to build the project in
-        -o, -OutputDir          the directory to output the build to
         -w, -WowDir             copy the build to the specified location
         -f, -TocFile            the toc file to use
         -i, -InterfaceVersion   the interface version to use
@@ -87,7 +85,7 @@ $Toc = $Toc | ForEach-Object {
     }
 
     if ( $_ -match "^## X-Date: \{\{(.+)\}\}$" ) {
-        $_ = "## Date: $( Get-Date -Format "o" )"
+        $_ = "## X-Date: $( Get-Date -Format "o" )"
     }
 
     $_
@@ -116,14 +114,25 @@ Compress-Archive `
     -Path `
     .\docs, `
     .\Icons, `
-    .\Libs, `
+    .\Libs\LibStub, `
+    .\Libs\CallbackHandler*, `
+    .\Libs\AceAddon*, `
+    .\Libs\AceConfig*, `
+    .\Libs\AceConsole*, `
+    .\Libs\AceLocale*, `
+    .\Libs\AceDB-*, `
+    .\Libs\AceGUI*, `
+    .\Libs\AceHook*, `
+    .\Libs\AceEvent*, `
+    .\Libs\AceTimer*, `
     .\Locales, `
     .\Rings, `
     "$BuildDir/$Name.toc", `
     .\*.lua, `
     .\*.xml, `
     .\*.txt, `
-    .\*.md `
+    .\*.md, `
+    .\LICENSE.txt `
     -DestinationPath `
     "$BuildDir\$Name-$Version.zip" `
     -Force
