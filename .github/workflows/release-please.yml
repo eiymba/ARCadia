@@ -1,6 +1,8 @@
 on:
   push:
     branches:
+      - alpha
+      - beta
       - canary
 name: release-please
 jobs:
@@ -15,4 +17,5 @@ jobs:
           prerelease: true
           default-branch: canary
           version-file: VERSION.txt
-          pull-request-title-pattern: "v${version} Release"
+          pull-request-title-pattern: "v${version} ${{ github.ref_name }}"
+          component: "${{ github.ref_name }}"
