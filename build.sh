@@ -40,9 +40,6 @@ while test $# -gt 0; do
         -c|--clean)
             CLEAN=1
             ;;
-        -r|--release)
-            RELEASE=1
-            ;;
         -x|--copy-to-wow)
             COPY_TO_WOW=1
             ;;
@@ -63,6 +60,9 @@ while test $# -gt 0; do
             ;;
         -i|--interface-version)
             INTERFACE_VERSION=$2
+            ;;
+        -n|--name)
+            NAME=$2
             ;;
         *)
             break
@@ -119,7 +119,17 @@ echo "Archiving files to $BUILD_DIR/$NAME-$VERSION.zip"
 zip -r "$BUILD_DIR/$NAME-$VERSION.zip" \
 ./Docs \
 ./Icons \
-./Libs \
+./Libs/LibStub \
+./Libs/CallbackHandler* \
+./Libs/AceAddon* \
+./Libs/AceConfig* \
+./Libs/AceConsole* \
+./Libs/AceLocale* \
+./Libs/AceDB-* \
+./Libs/AceGUI* \
+./Libs/AceHook* \
+./Libs/AceEvent* \
+./Libs/AceTimer* \
 ./Locales \
 ./Rings \
 ./*.lua \
