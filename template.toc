@@ -1,5 +1,5 @@
 ## Interface: {{ interface }}
-## Title: Arcadia
+## Title: {{ name }}
 ## Notes: Smooth combat HUD based on ArcHUD3
 ## Author: nyyr, Nenie, eiymba, rookdorf
 ## SavedVariables: ArcadiaDB
