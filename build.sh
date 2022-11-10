@@ -28,44 +28,62 @@ NAME="Arcadia"
 VERSION="v$(cat VERSION.txt)"
 BUILD_DIR="build"
 COPY_TO_WOW=0
-WOW_DIR="/Applications/World of Warcraft/_retail_"
+WOW_DIR=:"/Applications/World of Warcraft/_retail_"
 INTERFACE_VERSION="100000"
 
-while test $# -gt 0; do
-    case "$1" in
-        -h|--help) 
+# Parse arguments
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+        -h|--help)
             echo "$FILE"
             exit 0
             ;;
         -c|--clean)
             CLEAN=1
+            shift
             ;;
         -r|--release)
             RELEASE=1
+            shift
             ;;
         -x|--copy-to-wow)
             COPY_TO_WOW=1
+            shift
             ;;
         -n|--name)
-            NAME=$2
+            NAME="$2"
+            shift
+            shift
             ;;
         -v|--version)
-            VERSION=$2
+            VERSION="$2"
+            shift
+            shift
             ;;
         -d|--build-dir)
-            BUILD_DIR=$2
+            BUILD_DIR="$2"
+            shift
+            shift
             ;;
         -w|--wow-dir)
-            WOW_DIR=$2
+            WOW_DIR="$2"
+            shift
+            shift
             ;;
         -f|--toc-file)
-            TOC_FILE=$2
+            TOC_FILE="$2"
+            shift
+            shift
             ;;
         -i|--interface-version)
-            INTERFACE_VERSION=$2
+            INTERFACE_VERSION="$2"
+            shift
+            shift
             ;;
         *)
-            break
+            echo "Unknown argument: $1"
+            exit 1
             ;;
     esac
 done
@@ -119,7 +137,17 @@ echo "Archiving files to $BUILD_DIR/$NAME-$VERSION.zip"
 zip -r "$BUILD_DIR/$NAME-$VERSION.zip" \
 ./Docs \
 ./Icons \
-./Libs \
+./Libs/LibStub \
+./Libs/CallbackHandler* \
+./Libs/AceAddon* \
+./Libs/AceConfig* \
+./Libs/AceConsole* \
+./Libs/AceLocale* \
+./Libs/AceDB-* \
+./Libs/AceGUI* \
+./Libs/AceHook* \
+./Libs/AceEvent* \
+./Libs/AceTimer* \
 ./Locales \
 ./Rings \
 ./*.lua \

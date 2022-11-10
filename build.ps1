@@ -114,7 +114,17 @@ Compress-Archive `
     -Path `
     .\docs, `
     .\Icons, `
-    .\Libs, `
+    .\Libs\LibStub, `
+    .\Libs\CallbackHandler*, `
+    .\Libs\AceAddon*, `
+    .\Libs\AceConfig*, `
+    .\Libs\AceConsole*, `
+    .\Libs\AceLocale*, `
+    .\Libs\AceDB-*, `
+    .\Libs\AceGUI*, `
+    .\Libs\AceHook*, `
+    .\Libs\AceEvent*, `
+    .\Libs\AceTimer*, `
     .\Locales, `
     .\Rings, `
     "$BuildDir/$Name.toc", `
